@@ -1,0 +1,125 @@
+:root {
+    box-sizing: border-box;
+    --brown: #490B3D;
+    --hotpink: #BD1E51;
+    --mustard: #F1B814;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* Common Title */
+header {
+    background-color: var(--mustard);
+    display: flex;
+    align-items: center;
+    padding-left: max(1em, 5%);
+    padding-right: max(1em, 5%);
+    padding-block: 1em;
+    border-bottom: 2px solid black;
+    z-index: 4;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    padding-left: min(0.5em, 5%);
+    white-space: nowrap;
+}
+
+header i {
+    font-size: 2.5em;
+}
+
+.fa-bars {
+    margin-left: auto;
+    padding-right: 0.2em;
+}
+
+/* main */
+main {
+    position: relative;
+    z-index: 2;
+}
+
+/* Navigation */
+aside {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    background-color: #f5ccef;
+    width: 100%;
+    position: absolute;
+    top: -400px;
+    transition: top 0.3s ease-out;
+    z-index: 1;
+    border-bottom: 1px solid black;
+    font-size: 1.2rem;
+}
+
+aside.active {
+    top: 0px;
+}
+
+.due-today p,
+.due-next-week p,
+.projects p {
+    display: inline-block;
+    padding-left: 1em;
+}
+
+.projects {
+    position: relative;
+}
+
+.fa-caret-up.active {
+    transform: rotateZ(180deg) translateY(-3px);
+}
+
+.projects:active::after {
+    transform: rotateZ(180deg);
+}
+
+.projects-list {
+    background-color: #f3aee9;
+    border-radius: 20px; 
+    visibility: hidden;
+    position: absolute;
+}
+
+.projects-list.active {
+    position: relative;
+    visibility: visible;
+}
+
+.add-project {
+    text-align: center;
+    padding: .5em;
+    border-radius: 20px; 
+}
+
+.add-project:active {
+    background-color: #e7c1e2;
+}
+
+.project {
+    padding: .5em;
+    margin-left: 1em;
+}
+
+.project p {
+    display: inline-block;
+    padding-left: 5px;
+    margin: 0;
+}
+
+
+/* Main Lists */
+.list {
+    background-color: white;
+    width: 100%;
+    height: 500px;
+}
