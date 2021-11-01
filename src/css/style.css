@@ -165,7 +165,7 @@ aside.active {
     margin-left: auto;
 }
 
-.project-child button::after {
+.project-child.selected button::after {
     content: "\2715";
 }
 

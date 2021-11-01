@@ -1,3 +1,5 @@
+import CheckValidity from "./validity";
+
 class MobileHeaderUI {
     constructor() {
         this.navButton = document.querySelector('.fa-bars');
@@ -25,6 +27,7 @@ class ProjectBar {
         this.projectCreationModalCancelBtn = document.querySelector('.cancel');
         this.projectCreationModalCreateBtn = document.querySelector('.create');
         this.projectCreationModalInput = document.querySelector('input[type=text]');
+    
     }
 
     launch() {
@@ -40,6 +43,7 @@ class ProjectBar {
         if (e.target.className == 'delete-project') {
             this.deleteProject(e.target);
         }
+        if (e.target.className == 'project-child' || e.target.className == '') {}
     }
 
     openProjectBar() {
@@ -57,6 +61,9 @@ class ProjectBar {
 
     createProjectAndAppend() {
         const name = this.projectCreationModalInput.value;
+        //  Validity checking using another Class
+        if (!CheckValidity.checkValidity(name)) return;
+
         const project = this.createProjectDiv(name)
         this.appendProject(project);
         this.closeCreateProjectModal();
@@ -74,6 +81,9 @@ class ProjectBar {
         i.className = 'fas fa-list-ul';
         p.textContent = name;
         button.className = 'delete-project';
+
+        div.setAttribute('data-name', name);
+
 
         div.append(i, p, button);
         return div;
@@ -100,80 +110,10 @@ class ProjectBar {
         }
     }
 
-
  
 }
 
+
 export { MobileHeaderUI, ProjectBar };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const projectModal = (() => {
-    const projectList = document.querySelector('.projects-list');
-    const createProjectBtn = document.querySelector('.fas.fa-plus');
-    const addProjectDiv = document.querySelector('.add-project');
-    const cancelBtn = document.querySelector('.cancel');
-    const createBtn = document.querySelector('.create');
-    const projectCreationUi = document.querySelector('.project-creation-ui');
-    const nameInput = document.querySelector('input[type="text"]');
-    
-    createProjectDiv = (name) => {
-        const div = document.createElement('div');
-        const i = document.createElement('i');
-        const p = document.createElement('p');
-        const button = document.createElement('button');
-        
-        div.className = 'project-child';
-        i.className = 'fas fa-list-ul';
-        p.textContent = name;
-
-        div.append(i, p, button);
-        return div;
-    }
-
-
-    projectList.addEventListener('click', (e) => {
-        const targetChildren = e.target;
-    })
-
-    createProjectBtn.addEventListener('click', (e) => {
-        createProjectBtn.classList.toggle('active');
-        projectCreationUi.classList.toggle('active');
-
-    })
-
-    cancelBtn.addEventListener('click', (e) => {
-        createProjectBtn.classList.toggle('active');
-        projectCreationUi.classList.toggle('active');
-        nameInput.value = ''
-    })
-
-    createBtn.addEventListener('click', (e) => {
-        const name = nameInput.value;
-        const project = createProjectDiv(name);
-        addProjectDiv.insertAdjacentElement('beforebegin', project);
-        nameInput.value = "";
-        createProjectBtn.classList.toggle('active');
-        projectCreationUi.classList.toggle('active');
-        
-    })
-
-
-
-});
 

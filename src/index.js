@@ -2,12 +2,14 @@ import 'normalize.css';
 import './css/style.css';
 import { MobileHeaderUI, ProjectBar } from "./modules/UI.js";
 import Project from "./modules/project.js";
+import CheckValiditiy from './modules/validity.js';
 import PubSub from "pubsub-js";
 
 
 
 const MY_TOPIC1 = 'project_creation';
 const MY_TOPIC2 = 'project_deletion';
+const MY_TOPIC3 = 'checking_name';
 const allProjects = [];
 
 const createProjectHelper = (topic, name) => {
