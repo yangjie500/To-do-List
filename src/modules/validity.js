@@ -4,7 +4,7 @@ export default class CheckValidity {
 
     static _checkForSameName(name) {
         const projects = CheckValidity.allProjectsList.children;
-        console.log(projects);
+        //console.log(projects);
         for (let i = 0; i < projects.length -1; i++) {
             if(projects[i].getAttribute('data-name') == name) {
                 return true;

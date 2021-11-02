@@ -1,12 +1,21 @@
 export default function Project(name) {
     const toDo = [];
+    const description = 'description?';
 
     const editName =  (newName) => {
         name = newName;
     }
     
+    const editDescription = (newDescription) => {
+        description = newDescription;
+    }
+    
     const getName = () => {
         return name;
+    }
+
+    const getDescription = () => {
+        return description;
     }
 
     const appendToDo = () => {
@@ -18,7 +27,10 @@ export default function Project(name) {
         editName,
         getName,
         appendToDo,
-        name
+        getDescription,
+        editDescription,
+        name,
+        description
     };
 }
 
