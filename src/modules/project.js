@@ -1,6 +1,6 @@
 export default function Project(name) {
     const toDo = [];
-    const description = 'description?';
+    let description = 'description?';
 
     const editName =  (newName) => {
         name = newName;

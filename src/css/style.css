@@ -157,6 +157,7 @@ aside.active {
     padding-right: 10px;
     margin: 0;
     text-align: center;
+    word-wrap: break-word;
 }
 
 .project-child button {
@@ -177,6 +178,7 @@ aside.active {
         position: static;
         flex: 1;
         min-width: 400px;
+        height: 100%;
     }
 }
 
@@ -199,6 +201,7 @@ aside.active {
 
 .project-creation-ui input {
     flex: 0 0 100%;
+    width: 1px;
 }
 
 .project-creation-ui button {
@@ -224,6 +227,23 @@ aside.active {
     position: relative;
 }
 
+.project-meta.editing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-meta input {
+    width: 50%;
+    height: 2em;
+    margin-top: .5em;
+}
+
+.project-meta button {
+    width: 10%;
+    margin-top: .5em;
+}
+
 .main-list h3 {
     font-size: 2rem;
     margin: 0.3em 0 0.3em 1em;
@@ -245,6 +265,13 @@ aside.active {
 .main-list p {
     font-size: 1.5rem;
     margin: 0 0 0 1rem;
+}
+
+.project-meta.editing h3,
+.project-meta.editing p,
+.project-meta.editing span {
+    visibility: hidden;
+    position: absolute;
 }
 
 .to-do-list {

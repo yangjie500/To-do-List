@@ -50,7 +50,8 @@ class ProjectBar {
             PubSub.publish(this.MY_TOPIC3, e.target.getAttribute('data-name'));
         }
         if (e.target.className == 'fas fa-list-ul' || e.target.className == 'project-name') {
-            this.setActiveProject(e.target);
+            this.setActiveProject(e.target.parentElement);
+            PubSub.publish(this.MY_TOPIC3, e.target.parentElement.getAttribute('data-name'));
         }
     }
 
@@ -120,6 +121,7 @@ class ProjectBar {
     }
 
     setActiveProject(elem) {
+        if (Array.from(elem.classList).includes('selected')) return;
         this.removeAllActiveProject();
         elem.classList.toggle('selected');
     }
@@ -167,31 +169,9 @@ class ProjectBar {
  
 }
 
-class EditProjectUI {
-    constructor() {
-        this.projectName = document.querySelector('.project-name');
-        this.projectDescription = document.querySelector('.project-description');
-        this.projectEditBtn = document.querySelector('.edit-project')
-    }
-
-    launch() {
-        //this.projectEditBtn.addEventListener('click', openEditMenu.bind(this));
-    }
-
-    openEditMenu() {
-
-    }
-    
-    createInputForEdit() {
-        const input1 = document.createElement('input');
-        const input2 = document.createElement('input');
-        input1.setAttribute('type', 'text'); 
-        input2.setAttribute('type', 'text')
-    }
-}
 
 
 
-export { MobileHeaderUI, ProjectBar, EditProjectUI };
+export { MobileHeaderUI, ProjectBar };
 
 
