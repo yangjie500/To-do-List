@@ -137,8 +137,16 @@ class ProjectBar {
         while (this.projectMeta.firstChild) {
             this.projectMeta.removeChild(this.projectMeta.lastChild);
         }
-        while (this.toDoList.firstChild) {
-            this.toDoList.removeChild(this.toDoList.lastChild);
+        while (this.toDoList.firstElementChild && this.checkForNoDeleteElem(this.toDoList.firstElementChild)) {
+            this.toDoList.removeChild(this.toDoList.firstElementChild);
+        }
+    }
+
+    checkForNoDeleteElem(elem) {
+        if (Array.from(elem.classList).includes('to-do-edit')) {
+            return false;
+        } else {
+            return true;
         }
     }
 

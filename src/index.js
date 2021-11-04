@@ -4,6 +4,8 @@ import { MobileHeaderUI, ProjectBar } from "./modules/UI.js";
 import EditProjectUI from './modules/editproject.js';
 import Project from "./modules/project.js";
 import PubSub from "pubsub-js";
+import ToDo from './modules/to-do.js';
+import ToDoUI from './modules/todoUI.js';
 
 
 
@@ -70,5 +72,7 @@ let token4 = PubSub.subscribe(MY_TOPIC4, editingHelper);
 
 const headerUI = new MobileHeaderUI();
 const projectBar = new ProjectBar();
+const toDoUI = new ToDoUI();
 headerUI.launch(); 
 projectBar.launch();
+toDoUI.launch();
