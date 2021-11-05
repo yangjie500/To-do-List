@@ -1,5 +1,4 @@
-export default function ToDo(memo) {
-    let date;
+export default function ToDo(memo, date) {
     let hasDone = false;
 
     const getMemo = () => {
@@ -13,9 +12,16 @@ export default function ToDo(memo) {
     const setHasDone = () => {
         hasDone = hasDone ? false : true;
     }
+
+    const getHasDone = () => {
+        return hasDone;
+    }
     
     
     return {
+        memo,
+        date,
+        getHasDone,
         getMemo,
         getDate,
         setHasDone

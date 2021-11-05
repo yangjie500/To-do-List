@@ -171,8 +171,15 @@ class ProjectBar {
         let h3, span, p;
         this.refreshToDo();
         [h3, span, p] = this.createTitleAndDescription(name, description);
-        console.log(h3,span,p)
         this.projectMeta.append(h3,span,p);
+    }
+
+    appendProjectToDo(collections) {
+        const toDoEditInput = document.querySelector('.to-do-edit');
+        
+        for (let i of collections) {
+            toDoEditInput.insertAdjacentElement('beforebegin', i);
+        }
     }
  
 }

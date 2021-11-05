@@ -316,12 +316,17 @@ aside.active {
     margin-left: 1em;
 }
 
+.to-do.done .finish {
+    background-color: rgb(164, 255, 225);
+    position: relative;
+}
+
 .to-do p {
     flex: 1;
     margin: 0 0.5em;
 }
 
-.to-do p.done {
+.to-do.done p {
     text-decoration: line-through;
 }
 
@@ -360,4 +365,18 @@ aside.active {
 
 .to-do-edit .date {
     height: 2em;
+}
+
+.delete-todo {
+    margin-right: 1em;
+    position: relative;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.delete-todo::after {
+    position: absolute;
+    content: "\2715";
+    top: -10%;
+    left: 10%;
 }

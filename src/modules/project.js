@@ -1,5 +1,6 @@
 export default function Project(name) {
     const toDo = [];
+    const toDoHtml = [];
     let description = 'description?';
 
     const editName =  (newName) => {
@@ -21,14 +22,21 @@ export default function Project(name) {
     const appendToDo = () => {
         toDo.push('hello')
     }
+    
+    const addToDo = (toDoElem, object) => {
+        toDoHtml.push(toDoElem);
+        toDo.push(object);
+    }
 
     return {
         toDo,
+        toDoHtml,
         editName,
         getName,
         appendToDo,
         getDescription,
         editDescription,
+        addToDo,
         name,
         description
     };
