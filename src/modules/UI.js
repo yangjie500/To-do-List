@@ -21,6 +21,7 @@ class ProjectBar {
         this.MY_TOPIC2 = 'project_deletion';
         this.MY_TOPIC3 = 'project_info';
         this.projectBtn = document.querySelector('.projects');
+        this.caret = document.querySelector('.fa-caret-up');
         this.projectList = document.querySelector('.projects-list');
         this.projectAddDiv = document.querySelector('.add-project');
         this.createProjectBtn = document.querySelector('.fas.fa-plus'); 
@@ -57,6 +58,7 @@ class ProjectBar {
 
     openProjectBar() {
         this.projectList.classList.toggle('active');
+        this.caret.classList.toggle('active');
     }
 
     openCreateProjectModal() {

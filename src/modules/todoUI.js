@@ -1,3 +1,5 @@
+import CheckValidity from "./validity.js";
+
 export default class ToDoUI {
 
     constructor() {
@@ -54,6 +56,10 @@ export default class ToDoUI {
 
         [div, btn, p, dateDiv, cancel] = this.createToDo();
         [memo, date] = this.getUserInput();
+
+        // Check Validity
+        div.setAttribute('data-memo', memo);
+        if (!CheckValidity.checkValidityForTodo(date, memo)) return;
 
         p.textContent = memo;
         dateDiv.textContent = date;

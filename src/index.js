@@ -6,6 +6,7 @@ import Project from "./modules/project.js";
 import PubSub from "pubsub-js";
 import ToDo from './modules/to-do.js';
 import ToDoUI from './modules/todoUI.js';
+import ExtraFeature from './modules/extrafeature.js';
 
 
 
@@ -120,6 +121,8 @@ let token7 = PubSub.subscribe(MY_TOPIC7, recordFinishedToDo);
 const headerUI = new MobileHeaderUI();
 const projectBar = new ProjectBar();
 const toDoUI = new ToDoUI();
+const extraFeature = new ExtraFeature();
 headerUI.launch(); 
 projectBar.launch();
 toDoUI.launch();
+extraFeature.launch();
